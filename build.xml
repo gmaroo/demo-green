@@ -16,6 +16,9 @@
    <path id="log4j.class.path">
       <pathelement location="${lib.dir}/log4j-1.2.16.jar"/>
    </path>
+   <path id="oracle.class.path">
+      <pathelement location="${lib.dir}/ojdbc14.jar"/>
+   </path>
    
    <target name="init">
       <echo message="Initializing ${app.name} module ..."/>
