@@ -1,0 +1,29 @@
+<!-- TO-DO: create build.xml -->
+<project name="mmi-adp" default="init" basedir=".">
+   <description> Build file for demo-green.
+   </description>
+   <property name="app.name"        value="demo-green"/>   
+
+   <!-- Define directories -->
+   <property environment="env"/>
+   <property name="java.dir"        value="${env.JAVA_HOME}"/>
+   <property name="src.dir"         value="${basedir}/src"/>
+   <property name="lib.dir"         value="${basedir}/lib"/>
+   <property name="class.dir"       value="${basedir}/bin"/>
+   <property name="dist.dir"        value="${basedir}/dist"/>
+
+   <target name="init">
+      <echo message="Initializing ${app.name} module ..."/>
+      <mkdir dir="${class.dir}"/>
+      <mkdir dir="${dist.dir}"/>
+   </target>
+
+   <!-- Clean up all files that are generated -->
+   <target name="clean" description="Clean up">
+      <echo message="Cleanup ${app.name} module ..."/>
+      <delete dir="${dist.dir}"/>
+      <delete dir="${class.dir}"/>
+   </target>
+
+</project>
+   
