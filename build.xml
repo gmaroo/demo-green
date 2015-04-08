@@ -12,6 +12,11 @@
    <property name="class.dir"       value="${basedir}/bin"/>
    <property name="dist.dir"        value="${basedir}/dist"/>
 
+   <!-- Define classpath -->
+   <path id="log4j.class.path">
+      <pathelement location="${lib.dir}/log4j-1.2.16.jar"/>
+   </path>
+   
    <target name="init">
       <echo message="Initializing ${app.name} module ..."/>
       <mkdir dir="${class.dir}"/>
