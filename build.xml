@@ -25,6 +25,8 @@
       <echo message="Setting up directories"/>
       <mkdir dir="${class.dir}"/>
       <mkdir dir="${dist.dir}"/>
+      <echo message="Init ended ..."/>
+      <echo message="Init ended 2..."/>
    </target>
 
    <!-- Clean up all files that are generated -->
