@@ -27,6 +27,7 @@
       <mkdir dir="${dist.dir}"/>
       <echo message="Init ended ..."/>
       <echo message="Init ended 2..."/>
+      <echo message="Init ended 3..."/>
    </target>
 
    <!-- Clean up all files that are generated -->
