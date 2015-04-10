@@ -24,6 +24,8 @@
       <echo message="Initializing ${app.name} module ..."/>
       <echo message="Setting up directories #0"/>
       <echo message="Setting up directories #1"/>
+      <echo message="Setting up directories #2"/>
+      <echo message="Setting up directories #3"/>
       <mkdir dir="${class.dir}"/>
       <mkdir dir="${dist.dir}"/>
       <echo message="Init ended ..."/>
