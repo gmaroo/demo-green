@@ -21,9 +21,12 @@
    </path>
    
    <target name="init">
-      <echo message="Initializing ${app.name} module ..."/>
+      <echo message="++ Initializing ${app.name} module ..."/>
+      <echo message="++ Hello World !! ++"/>
+      <echo message="++ New Message 1..."/>
       <mkdir dir="${class.dir}"/>
       <mkdir dir="${dist.dir}"/>
+      <echo message="++ Init ended ..."/>
    </target>
 
    <!-- Clean up all files that are generated -->
