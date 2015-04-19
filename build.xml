@@ -23,7 +23,7 @@
    <target name="init">
       <echo message="++ Initializing ${app.name} module ..."/>
       <echo message="++ Hello World !! ++"/>
-      <echo message="++ New Message 2 ..."/>
+      <echo message="++ New Message 2 new..."/>
       <mkdir dir="${class.dir}"/>
       <mkdir dir="${dist.dir}"/>
       <echo message="++ Init ended ..."/>
