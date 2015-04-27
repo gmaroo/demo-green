@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Numbers" default="dist" basedir=".">
+
+    <property name="version.file" location="${basedir}/version.properties"/>
+
+    <target name="inc.revision.properties" unless="no.increment.revision">
+        <propertyfile file="${version.file}">
+            <entry key="minor.number" default="00" operation="=" pattern="00" type="int"/>
+            <entry key="major.number" default="00" operation="=" pattern="00" type="int"/>
+            <entry key="build.number" default="00" operation="+" pattern="00" type="int"/>
+        </propertyfile>
+    </target>
+
+    <target name="inc.minor.properties" unless="no.increment.minor">
+        <propertyfile file="${version.file}">
+            <entry key="minor.number" default="00" operation="+" pattern="00" type="int"/>
+            <entry key="major.number" default="00" operation="=" pattern="00" type="int"/>
+            <entry key="build.number" value="00" operation="="  type="int"/>
+        </propertyfile>
+    </target>
+
+    <target name="inc.major" if="inc.major">
+        <property name="no.increment.minor" value="true" />
+        <property name="no.increment.revision" value="true" />
+        <propertyfile file="${version.file}">
+            <entry key="minor.number" value="00" operation="=" pattern="00" type="int"/>
+            <entry key="major.number" default="00" operation="+" pattern="00" type="int"/>
+            <entry key="build.number" value="00" operation="=" pattern="00" type="int"/>
+        </propertyfile>
+        <load.version.info/>
+    </target>
+
+    <target name="inc.minor" depends="inc.major,inc.minor.properties">
+        <property name="no.increment.revision" value="true"/>
+        <load.version.info/>
+    </target>
+
+    <target name="inc.revision" depends="inc.major,inc.revision.properties">
+        <load.version.info/>
+    </target>
+
+    <macrodef name="load.version.info">
+        <sequential>
+            <property file="${version.file}"/>
+            <checksum file="${version.file}" property="sha1.number" algorithm="SHA" format="CHECKSUM"/>
+            <echo>Version: ${major.number}.${minor.number}.${build.number}</echo>
+            <echo>SHA1: ${sha1.number}</echo>
+        </sequential>
+    </macrodef>
+
+    <target name="compile" depends="inc.revision" description="Compile Task"/>
+
+    <target name="dist" depends="inc.minor, compile" description="Dest Task"/>
+
+</project>
